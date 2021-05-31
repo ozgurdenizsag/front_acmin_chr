@@ -1,0 +1,14 @@
+<div>
+  <p>
+    Page direction avec restriction de droit, visible uniquement aux admins et managers..
+  </p>
+  <h2>Tous les Utilisateurs</h2>
+  <ul class="list-group">
+    <app-utilisateur-gestion *ngFor="let utilisateur of utilisateurs"
+                             [id]="utilisateur.id"
+                             [login]="utilisateur.login"
+                             [email]="utilisateur.email"
+                             [roles]="utilisateur.roles"></app-utilisateur-gestion>
+  </ul>
+  <button class="btn btn-success" (click)="utilisateurGestion()">Ajouter un nouvel utilisateur</button>
+</div>

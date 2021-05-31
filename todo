@@ -1,0 +1,11 @@
+- Afficher le nom de la personne connectée en haut à droite et en faire un boutton toggle pour pouvoir
+    Se déconnecter
+    Mon espace
+- Faire une page "Mon espace" pour visualiser les données personnelles (Pour le moment uniquement la visualisation)
+- Faire une page où on peut
+    ajouter
+    supprimer
+    modifier un utilisateur
+      - idem pour les Autorités des utilisateur
+- Faire une page où on lance une requête libre
+

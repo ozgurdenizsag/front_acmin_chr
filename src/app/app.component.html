@@ -1,0 +1,19 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active"><a routerLink="access">Page restreinte</a></li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active"><a routerLink="directeur-page">Page directeur</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" >
+      <li routerLinkActive="active" [ngClass]="{'hidden': !isUserAuthenticated()}"><a routerLink="deconnection">Déconnection</a></li>
+      <li routerLinkActive="active" [ngClass]="{'hidden': isUserAuthenticated()}"><a routerLink="auth">Connexion</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+</div>
