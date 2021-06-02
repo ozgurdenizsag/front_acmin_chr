@@ -1,11 +1,28 @@
-<div>
-  <div style="padding-bottom: 5%">
-    <div class="col-md-6">
-      <h6> {{login}} - {{email}} - {{roles}} </h6>
-    </div>
-    <div class="col-md-6">
-      <a style="margin-right: 2px" class="btn btn-info">Modifier</a>
-      <button class="btn btn-danger">Supprimer</button>
+<div class="row" [hidden]="hiddenUtilisateurOptions()">
+  <div class="col">
+    <p> {{login}} - {{email}} - {{roles}} </p>
+  </div>
+  <div class="col">
+    <a style="margin-right: 2px" (click)="sendDataUser()" class="btn btn-info">Modifier</a>
+    <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="loadIdUser()" >Supprimer</button>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Etes-vous sûr de supprimer cet utilisateur ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteDataUser()">Supprimer</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

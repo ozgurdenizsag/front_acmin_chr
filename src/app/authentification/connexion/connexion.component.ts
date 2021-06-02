@@ -44,6 +44,7 @@ export class ConnexionComponent implements OnInit {
         } else {
           this.credentialsError = true;
           this.connexionService.redirectTo(this.connexionService.getAccueil());
+          // console.log(this.connexionService.getItemFromLocalStorage(this.connexionService.getUtilisateurUsername()));
         }
       },
       error => {

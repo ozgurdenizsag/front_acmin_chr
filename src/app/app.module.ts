@@ -16,20 +16,22 @@ import { AccueilComponent } from './accueil/accueil.component';
 import {ForbiddenPageComponent} from './exception/forbidden-page/forbidden-page.component';
 import {NotFoundComponent} from './exception/not-found/not-found.component';
 import {ConnexionComponent} from './authentification/connexion/connexion.component';
-import {DeconnectionComponent} from './authentification/deconnection/deconnection.component';
 import {UtilisateurService} from './services/utilisateur-service';
 import { UtilisateurGestionComponent } from './admin/utilisateur-gestion/utilisateur-gestion.component';
 import { SingleUtilisateurGestionComponent } from './admin/single-utilisateur-gestion/single-utilisateur-gestion.component';
 import {MyErrorHandler} from './exception/my-error-handler';
+import { MonEspaceComponent } from './personnel/mon-espace/mon-espace.component';
+import { RecuperationIdentifiantsComponent } from './personnel/recuperation-identifiants/recuperation-identifiants.component';
 
 const appRoutes: Routes = [
   { path: '', component: AccueilComponent},
   { path: 'accueil', component: AccueilComponent},
   { path: 'auth', component: ConnexionComponent},
+  { path: 'recuperation-identifiants', component: RecuperationIdentifiantsComponent},
   { path: 'access', canActivate: [AuthGuard], component: AccesAuthComponent},
-  { path: 'deconnection', canActivate: [AuthGuard], component: DeconnectionComponent},
   { path: 'directeur-page', canActivate: [AuthGuard], component: AdminGestionComponent},
   { path: 'utilisateur-gestion', canActivate: [AuthGuard], component: SingleUtilisateurGestionComponent},
+  { path: 'mon-espace', canActivate: [AuthGuard], component: MonEspaceComponent},
   { path: 'forbidden-page', component: ForbiddenPageComponent},
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: 'not-found'},
@@ -48,10 +50,11 @@ export function tokenGetter() {
     NotFoundComponent,
     ForbiddenPageComponent,
     AdminGestionComponent,
-    DeconnectionComponent,
     AccueilComponent,
     UtilisateurGestionComponent,
-    SingleUtilisateurGestionComponent
+    SingleUtilisateurGestionComponent,
+    MonEspaceComponent,
+    RecuperationIdentifiantsComponent
   ],
   imports: [
     BrowserModule,

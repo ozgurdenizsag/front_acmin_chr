@@ -1,7 +1,6 @@
 <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <div [ngClass]="{'alert alert-info':true,
-                      'hidden': credentialsError}" role="alert">
+  <div class="mx-auto">
+    <div class="alert alert-info" [hidden]="credentialsError" role="alert">
       Login ou mot de passe <strong>incorrect !</strong>
       <button (click)="onCredentialsErrorClicked()" type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -16,7 +15,10 @@
         <label for="password">Password : </label>
         <input type="password" id="password" class="form-control" name="password" ngModel required>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Log in</button>
+      <div class="form-group">
+        <a href="recuperation-identifiants">Mot de passe oublié ?</a>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Login</button>
     </form>
   </div>
 </div>

@@ -1,12 +1,16 @@
+<div class="alert alert-warning alert-dismissible fade show mx-5 col-lg-6 mt-5" [hidden]="message===''" role="alert">
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 <div>
-  <p>
-    Page direction avec restriction de droit, visible uniquement aux admins et managers..
-  </p>
   <h2>Tous les Utilisateurs</h2>
   <ul class="list-group">
     <app-utilisateur-gestion *ngFor="let utilisateur of utilisateurs"
                              [id]="utilisateur.id"
                              [login]="utilisateur.login"
+                             [password]="utilisateur.password"
                              [email]="utilisateur.email"
                              [roles]="utilisateur.roles"></app-utilisateur-gestion>
   </ul>
