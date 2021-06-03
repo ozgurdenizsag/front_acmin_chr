@@ -14,6 +14,8 @@ export class UtilisateurGestionComponent implements OnInit {
   @Input() email = '';
   @Input() roles: string[] = [];
   userId = -1;
+  modalTitre = 'Suppression';
+  modalMessage = 'Etes-vous sûr de supprimer cet utilisateur ?';
 
   constructor(private router: Router,
               private utilisateurService: UtilisateurService) { }

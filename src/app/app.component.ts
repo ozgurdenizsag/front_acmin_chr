@@ -9,6 +9,8 @@ import {ConnexionService} from './services/connexion-service';
 export class AppComponent implements OnInit{
   title = 'worldline-admin';
   username = '';
+  modalTitre = 'Déconnection';
+  modalMessage = 'Etes-vous sûr de vouloir vous déconnecter ?';
   constructor(private connexionService: ConnexionService) {
   }
   isUserAuthenticated(): boolean{
