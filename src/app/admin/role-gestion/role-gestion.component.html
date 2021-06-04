@@ -1,0 +1,28 @@
+<h1>Les Rôles</h1>
+<div>
+  <div class="col-sm-8 col-lg-offset-S">
+    <div class="alert alert-info" [hidden]="roleAddedMessage===''" role="alert">
+      {{roleAddedMessage}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form class="mt-5" (ngSubmit)="onAddRole(f)" #f="ngForm">
+      <div class="row form-group">
+        <div class="col form-group">
+          <input type="text" id="roleName" class="form-control" name="roleName" ngModel required
+                 placeholder="Uniquement des lettres majuscules..." minlength="5" pattern="^[A-Z]+$">
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-success" [disabled]="f.invalid">Ajouter</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <ul class="list-group">
+    <app-role-liste *ngFor="let role of roles"
+                             [id]="role.id"
+                             [libelle]="role.libelle"></app-role-liste>
+  </ul>
+</div>

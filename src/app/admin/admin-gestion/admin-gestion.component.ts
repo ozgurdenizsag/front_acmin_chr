@@ -3,6 +3,7 @@ import {Utilisateur} from '../../model/utilisateur';
 import {ConnexionService} from '../../services/connexion-service';
 import {UtilisateurService} from '../../services/utilisateur-service';
 import {Router} from '@angular/router';
+import {VariablesService} from '../../services/variables-service';
 
 @Component({
   selector: 'app-admin-gestion',
@@ -33,7 +34,7 @@ export class AdminGestionComponent implements OnInit, OnDestroy {
 
   utilisateurGestion(): void {
     this.utilisateurService.setIdToUpdate(-1);
-    this.router.navigate(['utilisateur-gestion']);
+    this.router.navigate([VariablesService.UTILISATEUR_GESTION]);
   }
 
   ngOnDestroy(): void {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {ConnexionService} from '../../services/connexion-service';
 import {UtilisateurService} from '../../services/utilisateur-service';
+import {VariablesService} from '../../services/variables-service';
 
 @Component({
   selector: 'app-recuperation-identifiants',
@@ -18,7 +19,7 @@ export class RecuperationIdentifiantsComponent implements OnInit {
   ngOnInit(): void {
     this.authStatus = this.connexionService.isAuthenticated();
     if (this.authStatus){
-      this.connexionService.redirectTo(this.connexionService.getAccueil());
+      this.connexionService.redirectTo(VariablesService.ACCUEIL);
     }
   }
 

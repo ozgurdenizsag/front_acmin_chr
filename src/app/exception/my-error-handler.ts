@@ -1,6 +1,7 @@
 import {ErrorHandler, Injectable, NgZone} from '@angular/core';
 import {ConnexionService} from '../services/connexion-service';
 import {Router} from '@angular/router';
+import {VariablesService} from '../services/variables-service';
 
 @Injectable()
 export class MyErrorHandler implements  ErrorHandler {
@@ -9,7 +10,7 @@ export class MyErrorHandler implements  ErrorHandler {
   handleError(error: Error): void {
     console.log(error.message);
     this.ngZone.run(() => {
-      this.router.navigate(['/forbidden-page']);
+      this.router.navigate([VariablesService.FORBIDDEN_PAGE]);
     });
   }
 }

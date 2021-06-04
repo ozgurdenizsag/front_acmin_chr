@@ -4,6 +4,7 @@ import {UtilisateurService} from '../../services/utilisateur-service';
 import {Router} from '@angular/router';
 import {Utilisateur} from '../../model/utilisateur';
 import {AdminGestionComponent} from '../admin-gestion/admin-gestion.component';
+import {VariablesService} from '../../services/variables-service';
 
 @Component({
   selector: 'app-single-utilisateur-gestion',
@@ -67,18 +68,20 @@ export class SingleUtilisateurGestionComponent implements OnInit, OnDestroy {
       data => {
         console.log(data);
         this.utilisateurService.setMessage(data[0]);
-        this.router.navigate(['/directeur-page']);
+        this.router.navigate([VariablesService.DIRECTEUR_PAGE]);
       },
       // error => console.log(error)
     );
   }
 
-  getRoles(): FormArray{
+  getRoles(): FormArray {
     return this.utilisateurForm.get('roles') as FormArray;
   }
 
   onAddRole(): void{
     const newRolesControl = this.formBuilder.control('', Validators.required);
+    // this.utilisateurToUpdate.roles.push('DENEME');
+    // this.initForm();
     this.getRoles().push(newRolesControl);
   }
 
@@ -99,6 +102,6 @@ export class SingleUtilisateurGestionComponent implements OnInit, OnDestroy {
   }
 
   onRetour(): void {
-    this.router.navigate(['/directeur-page']);
+    this.router.navigate([VariablesService.DIRECTEUR_PAGE]);
   }
 }

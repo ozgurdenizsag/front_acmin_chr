@@ -15,8 +15,7 @@ export class MonEspaceComponent implements OnInit {
   message = '';
 
   constructor(private formBuilder: FormBuilder,
-              private utilisateurService: UtilisateurService,
-              private router: Router) { }
+              private utilisateurService: UtilisateurService) { }
 
   ngOnInit(): void {
     this.initForm();

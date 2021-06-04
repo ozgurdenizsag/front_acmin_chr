@@ -22,7 +22,7 @@
       <div class="row form-group"  *ngFor="let roleControl of getRoles().controls; let i = index">
         <div class="col">
           <input type="text" style="margin-bottom: 2%" class="form-control" [formControlName]="i"
-                 placeholder="Uniquement des lettres majuscules..." minlength="5" pattern="^[A-Z]+$">
+                 placeholder="Uniquement des lettres majuscules..." minlength="3" pattern="^[A-Z]+$">
         </div>
         <div class="col">
           <button type="button" style="margin-bottom: 2%" class="btn btn-danger" (click)="onDeleteRole(i)">-</button>

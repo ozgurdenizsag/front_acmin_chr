@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Router} from '@angular/router';
 import {UtilisateurService} from '../../services/utilisateur-service';
+import {VariablesService} from '../../services/variables-service';
 
 @Component({
   selector: 'app-utilisateur-gestion',
@@ -25,7 +26,7 @@ export class UtilisateurGestionComponent implements OnInit {
 
   sendDataUser(): void {
     this.utilisateurService.setIdToUpdate(this.id);
-    this.router.navigate(['utilisateur-gestion']);
+    this.router.navigate([VariablesService.UTILISATEUR_GESTION]);
   }
 
   deleteDataUser(): void {
@@ -35,7 +36,7 @@ export class UtilisateurGestionComponent implements OnInit {
         console.log(data);
         // window.location.reload();
         this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
-          this.router.navigate(['directeur-page']);
+          this.router.navigate([VariablesService.DIRECTEUR_PAGE]);
         });
       },
       err => {
@@ -49,7 +50,7 @@ export class UtilisateurGestionComponent implements OnInit {
   }
 
   hiddenUtilisateurOptions(): boolean {
-    const utilisateurUsername = localStorage.getItem('utilisateur_username');
+    const utilisateurUsername = localStorage.getItem(VariablesService.utilisateurUsername);
     return this.login === utilisateurUsername;
   }
 }

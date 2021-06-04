@@ -15,33 +15,17 @@ export class AccesAuthComponent implements OnInit {
   utilisateurs: Utilisateur[] = [];
 
   constructor(private connexionService: ConnexionService,
-              private utilisateurService: UtilisateurService,
-              private router: Router) { }
+              private utilisateurService: UtilisateurService) { }
 
   ngOnInit(): void {
-    try {
-      console.log(this.utilisateurs);
-      this.getDataFromServer();
-    } catch (error){
-      console.error('erreur est le : ', error);
-    }
+    this.getDataFromServer();
   }
-  // tslint:disable-next-line:typedef
-  getDataFromServer(){
+
+  getDataFromServer(): void {
     this.utilisateurService.getUtilisateur().subscribe(
       data => {
-        console.log(data);
         this.utilisateurs = data;
-        /*
-        // l'erreur est la !!
-        if (this.utilisateurs.length === 0){
-          console.log('vide');
-          this.router.navigate(['auth']);
-        }
-         */
-        console.log(this.utilisateurs);
-      },
-      // error => console.log(error)
+      }
     );
   }
 

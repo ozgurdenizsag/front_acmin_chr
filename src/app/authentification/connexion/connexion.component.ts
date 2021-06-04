@@ -3,7 +3,7 @@ import {NgForm} from '@angular/forms';
 import {User} from '../../model/user';
 import {HttpClient} from '@angular/common/http';
 import {ConnexionService} from '../../services/connexion-service';
-import {Router} from '@angular/router';
+import {VariablesService} from '../../services/variables-service';
 
 @Component({
   selector: 'app-connexion',
@@ -26,12 +26,11 @@ export class ConnexionComponent implements OnInit {
   ngOnInit(): void {
     this.authStatus = this.connexionService.isAuthenticated();
     if (this.authStatus){
-      this.connexionService.redirectTo(this.connexionService.getAccueil());
+      this.connexionService.redirectTo(VariablesService.ACCUEIL);
     }
   }
 
-  // tslint:disable-next-line:typedef
-  onLogIn(form: NgForm){
+  onLogIn(form: NgForm): void{
     const login = form.value.username;
     const password = form.value.password;
     this.user.username = login;
@@ -43,8 +42,7 @@ export class ConnexionComponent implements OnInit {
           this.credentialsError = false;
         } else {
           this.credentialsError = true;
-          this.connexionService.redirectTo(this.connexionService.getAccueil());
-          // console.log(this.connexionService.getItemFromLocalStorage(this.connexionService.getUtilisateurUsername()));
+          this.connexionService.redirectTo(VariablesService.ACCUEIL);
         }
       },
       error => {
